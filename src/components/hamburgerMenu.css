@@ -1,0 +1,63 @@
+.navigation {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially hidden off-screen */
+    background-color: blue;
+    padding-top: 60px;
+    transition: left 0.3s ease; /* Smooth transition for sliding effect */
+}
+
+.navigation.active {
+    left: 0; /* Slide in when active */
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navigation li {
+    margin-bottom: 10px;
+}
+
+.navigation a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.navigation a:hover {
+    background-color: #555;
+}
+
+.hamburger {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.hamburger div {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: all 0.3s ease;
+}
+
+/* Rotate first and third lines */
+.hamburger.active div:first-child {
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.hamburger.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active div:last-child {
+    transform: rotate(45deg) translate(-8px, -8px);
+}
