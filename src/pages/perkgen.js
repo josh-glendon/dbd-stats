@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import survPerkData from "../components/survPerkList.json";
+import killerPerkData from "../components/killerPerkList.json";
 import "./perkgen.css";
 
 export default function PerkGen() {
@@ -22,7 +23,7 @@ export default function PerkGen() {
     // useEffect, will run when the component is loaded
     useEffect(() => {
         generateRandomNumbers();
-    }, []);
+    }, [activeTab]);
 
     
     // generate random numebrs 
@@ -30,17 +31,29 @@ export default function PerkGen() {
         let randomNumbers = [];
         let perks = [];
 
-        for (let i = 1; i < 5; i++){
-            const randomDecimal = Math.random();
-            const randomNumber = Math.floor(randomDecimal * 137) + 1;
-            randomNumbers.push(randomNumber);
-        }
 
         if(activeTab === "survivor"){
+            for (let i = 1; i < 5; i++){
+                const randomDecimal = Math.random();
+                const randomNumber = Math.floor(randomDecimal * 137) + 1;
+                randomNumbers.push(randomNumber);
+            }
             perks.push(survPerkData[randomNumbers[0]])
             perks.push(survPerkData[randomNumbers[1]])
             perks.push(survPerkData[randomNumbers[2]])
             perks.push(survPerkData[randomNumbers[3]])
+            setCurrentPerks(perks);
+        }
+        else if (activeTab === "killer"){
+            for (let i = 1; i < 5; i++){
+                const randomDecimal = Math.random();
+                const randomNumber = Math.floor(randomDecimal * 118) + 1;
+                randomNumbers.push(randomNumber);
+            }
+            perks.push(killerPerkData[randomNumbers[0]])
+            perks.push(killerPerkData[randomNumbers[1]])
+            perks.push(killerPerkData[randomNumbers[2]])
+            perks.push(killerPerkData[randomNumbers[3]])
             setCurrentPerks(perks);
         }
     }
