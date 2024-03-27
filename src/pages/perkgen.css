@@ -1,0 +1,72 @@
+.perk-choose-button-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.perk-choose-button-container button {
+    /* Common button styles */
+    padding: 5px 10px;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #ccc; /* Default background color */
+}
+
+.survivor-button {
+    /* Styles for Survivor button */
+    color: #fff;
+}
+
+.killer-button {
+    /* Styles for Killer button */
+    color: #fff;
+}
+
+.perk-choose-button-container button.active {
+    /* Styles for active buttons */
+    /* You can add additional styles if needed */
+    opacity: 0.8; /* Example: Slightly reduce opacity when active */
+}
+
+/* Specify background colors for active buttons */
+.perk-choose-button-container button.survivor-button.active {
+    background-color: #007bff; /* Blue */
+}
+
+.perk-choose-button-container button.killer-button.active {
+    background-color: #dc3545; /* Red */
+}
+
+.diamond {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transform: rotate(45deg);
+    border: 2px solid black;
+}
+
+.diamond-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.diamond-contianer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 400px;
+    background-color: #007bff;
+    justify-content: center;
+    align-items: center;
+}
+
+.first-diamond-container {
+    display: flex;
+}
+
+.second-diamond-container {
+    display: flex;
+    flex-direction: row;
+}
