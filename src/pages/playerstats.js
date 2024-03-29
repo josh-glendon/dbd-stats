@@ -35,6 +35,24 @@ export default function PlayerStats() {
         <div>
             <h2>Player Stats page</h2>
             <p>SteamID: {steamID.steamID}</p>
+
+            <div className="survivor-stats-container">
+                <p>Survivor</p>
+                {stats && (
+                    <div>
+                        <p>Escapes in the Dying state: {stats.stats[7].value}</p>
+                        <p>Escapes through hatch {stats.stats[20].value}</p>
+                        <p>Total Escapes: {stats.stats[8].value}</p>
+                        <p>Successful Skill Checks: {stats.stats[9].value}</p>
+                        <p>Generator Pct: {stats.stats[5].value}</p>
+                        <p>Heal Pct: {stats.stats[6].value}</p>
+                        <p>Unhooks or Heals: {stats.stats[12].value}</p>
+                        <p>Unhooks or Heal after Exit Gates Powered: {stats.stats[13].value}</p>
+                        
+                    </div>
+                )}
+            </div>
+
         </div>
     )
 }
