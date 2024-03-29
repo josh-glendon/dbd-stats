@@ -7,7 +7,8 @@ export default function Homescreen() {
     const [response, setResponse] = useState('');
 
     const navigate = useNavigate();
-
+  
+    
     const handleChange = (e) => {
         setSteamID( e.target.value);
     };
