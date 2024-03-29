@@ -9,6 +9,8 @@ export default function PerkGen() {
     const [activeTab, setActiveTab] = useState("survivor");
     const [currentPerks, setCurrentPerks] = useState([]);
 
+    const [response, setResponse] = useState(null);
+
     
     // Tab Changes
     const handleSurvButton = () => {
@@ -55,6 +57,16 @@ export default function PerkGen() {
             perks.push(killerPerkData[randomNumbers[2]])
             perks.push(killerPerkData[randomNumbers[3]])
             setCurrentPerks(perks);
+        }
+    }
+
+    const handleClick = async () => {
+        try{
+            const response = await fetch('http://localhost:5000/perks/addPerk', { method: 'POST' });
+            const data = await response.json();
+            setResponse(data.message);
+        } catch(error){
+            setResponse("Error adding perk");
         }
     }
 
@@ -118,6 +130,11 @@ export default function PerkGen() {
 
             <div>
                 <button onClick={generateRandomNumbers}>Regenerate Perks</button>
+            </div>
+
+            <div>
+                <button onClick={handleClick}>Add Perk</button>
+                {response && <p>{response}</p>}
             </div>
             
         </div>
